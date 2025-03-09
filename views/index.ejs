@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Seat Booking</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2>Select Date</h2>
+
+    <label for="date">Choose a date:</label>
+    <input type="date" id="datePicker" min="" />
+    <label for="timePicker">Select Time:</label>
+    <select id="timePicker">
+        <option value="">-- Select Time --</option>
+        <option value="10:00">10:00</option>
+        <option value="12:00">12:00</option>
+        <option value="14:00">14:00</option>
+        <option value="16:00">16:00</option>
+        <option value="18:00">18:00</option>
+        <option value="20:00">20:00</option>
+    </select>
+
+    <div id="seatSection" style="display: none;">
+        <h2>Select a Seat</h2>
+        <div class="screen">SCREEN</div>
+
+        <div class="seat-container">
+            <% for(let row = 0; row < 5; row++) { %>
+                <div class="seat-row">
+                    <% for(let col = 0; col < 8; col++) { %>
+                        <div class="seat" data-seat="<%= row %>-<%= col %>"></div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+        <p>Selected Seats: <span id="selectedSeats">None</span></p>
+            <button id="bookSeats" disabled>Book</button>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
